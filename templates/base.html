@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head lang="en">
+
+		<title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Adel Davletshina"/>
+        <meta name="keywords" content="web, developer, frontend, frontend, adel, davletshina"/>
+
+        <link rel="stylesheet" href="/static/libs/bootstrap-3.3.4/css/bootstrap.css">
+
+        {% block css %}{% endblock %}
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet/less" href="/static/css/style.less">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.0/less.min.js"></script>
+
+        <script src="/static/lib/jquery-2.1.4.min.js"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+            var url = location.href.split("/")[3];
+            var page_url = "/"+url+"/";
+
+            $('.menu div a').each(function() {
+                if($(this).attr('href') == page_url) {
+                      $(this).parent().addClass('active');
+                    }
+
+                });
+            });
+
+        </script>
+
+        {% block scripts %}{% endblock %}
+
+
+	</head>
+	<body>
+
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/portfolio/">WORKS</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+        </ul>
+
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+    </body>
+</html>
